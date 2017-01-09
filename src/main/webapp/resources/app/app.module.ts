@@ -1,35 +1,33 @@
-import { NgModule }      from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-// Imports for loading & configuring the in-memory web api
-//import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-//import { InMemoryDataService }  from './in-memory-data.service';
-
-import { TestEntityService } from './testEntity.service';
-import { TestSummaryService } from './testSummary.service';
+import { TestEntityService } from './services/testEntity.service';
+import { TestSummaryService } from './services/testSummary.service';
 import { AppComponent }  from './app.component';
-import { TestTableView }  from './testEntity_display.component';
-import { TestSummaryView } from './testSummaryView.component';
+import { TestTableView }  from './view/testEntity_display.component';
+import { TestSummaryView } from './view/testSummaryView.component';
 import { HttpModule } from '@angular/http';
+import { DoughnutChart } from './angular_charts/doghnutChart.component';
+
 
 @NgModule({
-  imports:      [ 
+  imports:      [
   					BrowserModule ,
   					HttpModule
   				],
-  
-  declarations: [ 
+
+  declarations: [
   				  AppComponent ,
   				  TestTableView ,
-            TestSummaryView
+            TestSummaryView,
+            DoughnutChart
   				],
-  
+
   bootstrap:    [ AppComponent ],
-  
+
   providers: [
               TestEntityService,
               TestSummaryService
              ]
 })
 export class AppModule { }
-  

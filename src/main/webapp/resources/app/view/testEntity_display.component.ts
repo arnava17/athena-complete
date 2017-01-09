@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { TestEntity } from './testEntity';
-import { TestEntityService } from './testEntity.service';
+import { TestEntity } from '../testEntity';
+import { TestEntityService } from '../services/testEntity.service';
 import { OnInit } from '@angular/core';
 //import { HttpModule }    from '@angular/http';
 

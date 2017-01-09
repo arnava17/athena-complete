@@ -1,8 +1,6 @@
 package com.barclays.controller;
 
-import com.barclays.model.FunctionalAreaSummary;
-import com.barclays.model.Result;
-import com.barclays.model.ResultSummary;
+import com.barclays.model.*;
 import com.barclays.service.ResultService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,9 +40,14 @@ public class ResultController {
 
 	@RequestMapping(value="/{test_run_id}/functional_summary", method = RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)
-	public FunctionalAreaSummary getFunctionalAreaSummary(@PathVariable("test_run_id") String testRunId) {
+	public List<StatusCount> getFunctionalAreaSummary(@PathVariable("test_run_id") String testRunId) {
 		return resultService.getFunctionalAreaSummary(testRunId);
 	}
 
 
+	@RequestMapping(value="/{test_run_id}/test_sub_type_summary", method = RequestMethod.GET)
+	@ResponseStatus(HttpStatus.OK)
+	public List<TestSubType> getTestSubTypeSummary(@PathVariable("test_run_id") String testRunId) {
+		return resultService.getTestSubTypeSummary(testRunId);
+	}
 }

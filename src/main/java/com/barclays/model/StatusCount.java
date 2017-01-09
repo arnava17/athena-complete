@@ -5,11 +5,15 @@ package com.barclays.model;
  */
 public class StatusCount {
 
-    int passCount;
-    int failCount;
-    int skipCount;
+    private String functionalAreaName;
+    private int passCount;
+    private int failCount;
+    private int skipCount;
 
-    public StatusCount(int passCount, int failCount, int skipCount) {
+
+    public StatusCount(String functionalAreaName, int passCount, int failCount, int skipCount) {
+        this.functionalAreaName = functionalAreaName;
+
         this.passCount = passCount;
         this.failCount = failCount;
         this.skipCount = skipCount;
@@ -17,6 +21,14 @@ public class StatusCount {
 
     public int getPassCount() {
         return passCount;
+    }
+
+    public String getFunctionalAreaName() {
+        return functionalAreaName;
+    }
+
+    public void setFunctionalAreaName(String functionalAreaName) {
+        this.functionalAreaName = functionalAreaName;
     }
 
     public void setPassCount(int passCount) {

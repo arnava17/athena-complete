@@ -31,6 +31,7 @@ import static com.jayway.restassured.RestAssured.when;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.core.IsCollectionContaining.hasItem;
+import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.hamcrest.core.IsEqual.equalTo;
 import org.hamcrest.Matchers;
 
@@ -169,12 +170,21 @@ public class ApplicationTest {
                 .get("/api/v1/results/{testRunId}/functional_summary","testRun1")
                 .then()
                 .statusCode(200)
-                .body("functionalAreaStatusCount.Settings.passCount", is(1))
-                .body("functionalAreaStatusCount.Settings.failCount", is(0))
-                .body("functionalAreaStatusCount.Settings.skipCount", is(0));
+                .body("passCount", hasItems(1))
+                .body("failCount", hasItems(0))
+                .body("skipCount", hasItems(0));
 
     }
 
+    @Test
+    public void getTestSubTypeSummaryShouldReturnTestSubTypeSummaryWhenCalled(){
+        when()
+                .get("/api/v1/results/{testRunId}/test_sub_type_summary","testRun1")
+                .then()
+                .statusCode(200)
+                .body("testSubtypeName", hasItems("E2E"))
+                .body("testSubTypeCount", hasItems(1));
+    }
 
     @Test
     public void addResultShouldPostResultIntoDatabase(){
@@ -183,7 +193,7 @@ public class ApplicationTest {
         testCase.put("application" , "ap1");
         testCase.put("release" , "r1");
         testCase.put("build" , "b1");
-        testCase.put("testRunId" , "TRI_1");
+        testCase.put("testRunId" , "lol5");
         testCase.put("testName" , "t1");
         testCase.put("functionalArea" , "fa1");
         testCase.put("status" , "PASS");

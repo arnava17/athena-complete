@@ -1,8 +1,6 @@
 package com.barclays.service;
 
-import com.barclays.model.FunctionalAreaSummary;
-import com.barclays.model.Result;
-import com.barclays.model.ResultSummary;
+import com.barclays.model.*;
 import com.barclays.repository.ResultRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,10 +38,18 @@ public class ResultService {
 		return resultSummary;
 	}
 
-	public FunctionalAreaSummary getFunctionalAreaSummary(String testRunId) {
+	public List<StatusCount> getFunctionalAreaSummary(String testRunId) {
 
 		List<Result> resultList = getResultTests(testRunId);
-		FunctionalAreaSummary functionalAreaSummary = resultSummaryCalculator.getFunctionalAreaSummary(resultList);
-		return functionalAreaSummary;
+		List<StatusCount> functionalAreaSummaryArrayList = resultSummaryCalculator.getFunctionalAreaSummary(resultList).getFunctionalAreaStatusCountArrayList();
+		return functionalAreaSummaryArrayList;
+	}
+
+
+	public List<TestSubType> getTestSubTypeSummary(String testRunId) {
+
+		List<Result> resultList = getResultTests(testRunId);
+		List<TestSubType> testSubTypeSummaryList = resultSummaryCalculator.getTestSubTypeSummary(resultList).getTestSubTypeList();
+		return testSubTypeSummaryList;
 	}
 }

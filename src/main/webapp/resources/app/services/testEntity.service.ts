@@ -5,19 +5,26 @@ import {Observable} from "rxjs/Rx";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
-import { TestSummary } from './testSummary';
+import { TestEntity } from '../testEntity';
 
 
 
 @Injectable()
-export class TestSummaryService{
-	private testsUrl = 'http://localhost:8080/api/v1/results/lol5/result_summary';
+export class TestEntityService{
+	private testsUrl = 'http://localhost:8080/api/v1/results/testRun1/tests';
 	//private testsUrl = 'http://rest-service.guides.spring.io/greeting';
-	constructor(private http: Http) {} 
-		
-	getTestSummary() : Observable<TestSummary> {
+	constructor(private http: Http) {}
+
+
+
+	getTests() : Observable<TestEntity[]> {
 		return this.http.get(this.testsUrl)
-                    .map(response => response.json())
+                    .map((response : Response )=> {
+                    	var result = response.json();
+                    	//console.log(result);
+                    	return result;
+                    })
                     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
+
 }

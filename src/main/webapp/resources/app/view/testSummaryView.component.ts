@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { TestSummary } from './testSummary';
-import { TestSummaryService } from './testSummary.service';
+import { TestSummary } from '../testSummary';
+import { TestSummaryService } from '../services/testSummary.service';
 import { OnInit } from '@angular/core';
 //import { HttpModule }    from '@angular/http';
 
@@ -48,8 +48,8 @@ export class TestSummaryView implements OnInit{
   getTestSummary():void{
     this.tsService.getTestSummary().subscribe( sValues => {
       this.sValues = sValues;
-      console.log("Zinda");
-      console.log(sValues);
+      //console.log("Zinda");
+      //console.log(sValues);
     });
     //this.teService.getTests().then( tValues => this.tValues = tValues );
   }

@@ -1,12 +1,7 @@
 package com.barclays.service;
 
 
-import com.barclays.model.FunctionalAreaSummary;
-import com.barclays.model.Result;
-import com.barclays.model.ResultSummary;
-import com.barclays.model.StatusCount;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
+import com.barclays.model.*;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -21,6 +16,7 @@ public class ResultSummaryCalculator {
 
     ResultSummary resultSummary;
     FunctionalAreaSummary functionalAreaSummary;
+    TestSubTypeSummary testSubTypeSummary;
 
     public ResultSummary getResultSummary(List<Result> resultList) {
         int totalTests = 0;
@@ -81,7 +77,8 @@ public class ResultSummaryCalculator {
 
             if (!functionalAreaStatusCount.containsKey(functionalAreaOfResultTest)) {
 
-                functionalAreaStatusCount.put(functionalAreaOfResultTest, new StatusCount(0, 0, 0));
+                String functionalAreaName = result.getFunctionalArea();
+                functionalAreaStatusCount.put(functionalAreaOfResultTest, new StatusCount(functionalAreaName, 0, 0, 0));
             }
 
 
@@ -102,5 +99,27 @@ public class ResultSummaryCalculator {
 
         functionalAreaSummary.setFunctionalAreaStatusCount(functionalAreaStatusCount);
         return functionalAreaSummary;
+    }
+
+    public TestSubTypeSummary getTestSubTypeSummary(List<Result> resultList){
+        testSubTypeSummary = new TestSubTypeSummary();
+        Map<String, Integer> testSubTypeCount = new HashMap<String, Integer>();
+
+        for (Result result : resultList) {
+
+            String testSubTypeOfResultTest = result.getTestSubType();
+
+
+            if (!testSubTypeCount.containsKey(testSubTypeOfResultTest)) {
+
+                testSubTypeCount.put(testSubTypeOfResultTest, 0);
+            }
+
+
+            testSubTypeCount.put(testSubTypeOfResultTest, testSubTypeCount.get(testSubTypeOfResultTest)+1);
+        }
+
+        testSubTypeSummary.setTestSubTypeCount(testSubTypeCount);
+        return testSubTypeSummary;
     }
 }

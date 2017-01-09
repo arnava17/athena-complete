@@ -151,4 +151,12 @@ public class ResultSummaryCalculatorTest {
         Assert.assertEquals(1,resultSummaryCalculator.getFunctionalAreaSummary(resultList).getFunctionalAreaStatusCount().get("Settings").getSkipCount());
 
     }
+
+    @Test
+    public void testGetTestSubTypeSummary() throws Exception {
+
+        Assert.assertEquals(Integer.valueOf(1),resultSummaryCalculator.getTestSubTypeSummary(resultList).getTestSubTypeCount().get("E2E"));
+        Assert.assertEquals(Integer.valueOf(1),resultSummaryCalculator.getTestSubTypeSummary(resultList).getTestSubTypeCount().get("API"));
+        Assert.assertEquals(Integer.valueOf(1),resultSummaryCalculator.getTestSubTypeSummary(resultList).getTestSubTypeCount().get("Unit"));
+    }
 }
