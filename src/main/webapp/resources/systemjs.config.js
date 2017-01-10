@@ -6,7 +6,8 @@
   System.config({
     paths: {
       // paths serve as alias
-      'npm:': 'node_modules/'
+      'npm:': 'node_modules/',
+      'angular-hc' : 'node_modules/highcharts/modules/*.js'
     },
     // map tells the System loader where to look for things
     map: {
@@ -22,6 +23,12 @@
       '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
+      'highcharts': 'node_modules/highcharts/highcharts.js',
+      'highcharts-3d': 'node_modules/highcharts/highcharts-3d.src.js',
+      'highcharts-more': 'node_modules/highcharts/highcharts-more.src.js',
+      'exporting': 'node_modules/highcharts/modules/exporting.js',
+      'funnel': 'node_modules/highcharts/modules/funnel.js',
+
 
       // other libraries
       'rxjs':                      'npm:rxjs',

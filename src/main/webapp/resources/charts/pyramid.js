@@ -41,7 +41,7 @@ function configPyramidChart(){
 
 function getData3(){
     $.get( "http://localhost:8080/api/v1/results/testRun1/test_sub_type_summary", function( data ) {
-        console.log(JSON.stringify(data));
+        //console.log(JSON.stringify(data));
         parseData3(data);
         configPyramidChart();
     });
@@ -49,22 +49,11 @@ function getData3(){
 
 function parseData3(data){
     var count = data.length;
-    //var count = Object.keys(obj).length;
-    //console.log(obj);
-    /*for(var k in obj){
-        var funcObjArray = [];
-        funcObjArray.push(k);
-        funcObjArray.push(obj[k]);
-        //console.log();
-        completeArray.push(funcObjArray);
-    }
-    console.log(completeArray);*/
-
     for(var i = 0 ; i < count ; i++){
         var funcObjArray = [];
         funcObjArray.push(data[i].testSubTypeName);
         funcObjArray.push(data[i].testSubTypeCount);
-        console.log("asdasdas"+data[i].testSubtypeCount);
+        //console.log("asdasdas"+data[i].testSubtypeCount);
         completeArray.push(funcObjArray);       
     }
 

@@ -36,6 +36,10 @@ export class TestTableView implements OnInit{
   getTests():void{
     this.teService.getTests().subscribe( data => {
         this.tValues = data;
+        for(var i=0; i< this.tValues.length ; i++){
+          this.tValues[i].startTime = this.parseDate(this.tValues[i].startTime);
+          this.tValues[i].endTime = this.parseDate(this.tValues[i].endTime);
+        }
         //console.log(this.tValues);
       }
        );
@@ -44,6 +48,11 @@ export class TestTableView implements OnInit{
 
   ngOnInit(): void{
     this.getTests();
+  }
+
+  parseDate(date:string) : string {
+    var d = new Date(date);
+    return d.toUTCString();
   }
 
 

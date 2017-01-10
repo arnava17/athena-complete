@@ -19,7 +19,7 @@ function configBarChart(){
         xAxis: {
             categories: cat,
             title: {
-                text: null
+                text: 'Functional Area'
             }
         },
         yAxis: {
@@ -58,23 +58,20 @@ function configBarChart(){
         },
         series: [{
             name: 'Passed',
-        color:'#00ff00',
+        color:'#7CB5EC',
             data: passed
         }
         , {
             name: 'Failed',
-    color:'#ff0000',
+    color:'#5C5C61',
             data: failed
         },
     {
      name: 'Skipped',
-     color:'#D3D3D3',
+     color:'#90ED7D',
             data: skipped
 
     }
-
-
-
     ]
     });
 
@@ -91,22 +88,10 @@ function getData1(){
 
 function parseData1(data){
     var count = data.length;
-    console.log("lala"+data);
-
-    /*for(var k in data.functionalAreaStatusCount) cat.push(k);
-    var obj = data.functionalAreaStatusCount;
-    for(var i=0;i < cat.length ; i++){
-        passed.push(obj[cat[i]].passCount);
-        failed.push(obj[cat[i]].failCount);
-        skipped.push(obj[cat[i]].skipCount);
-    }
-    //console.log("asda");
-    //console.log(passed);*/
     for(var i = 0 ; i < count ; i++){
         cat.push(data[i].functionalAreaName);
         passed.push(data[i].passCount);
         failed.push(data[i].failCount);
         skipped.push(data[i].skipCount);
     }
-    console.log(passed);
 }

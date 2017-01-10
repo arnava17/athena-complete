@@ -2,38 +2,38 @@ import { Component } from '@angular/core';
 import { TestSummaryService } from '../services/testSummary.service';
 import { TestSummary } from '../testSummary';
 import { OnInit } from '@angular/core'
-//declare var HighCharts : any;
-//import 'https://code.highcharts.com/modules/funnel.js';
-declare var $:JQueryStatic;
+var Highcharts = require('highcharts');
+
 @Component({
-	selector : 'doughnut-chart',
+	selector : 'donut-chart',
 	template : `
-		<div *ngIf="chartData" id="chartdiv" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+		<div id="chartdiv" style="min-width: 310px; max-width: 400px; height: 400px; margin: 0 auto"></div>
 	`
 })
-export class DoughnutChart {
+export class DonutChart {
 	chartData : TestSummary;
-	totalPass : number;
-	totalFail : number;
-	totalSkipped : number;
 	constructor(private tsService : TestSummaryService){};
 	
-	ngAfterInit(){
+	ngAfterViewInit(){
 		this.getTestSummary();
 	}
 
 	getTestSummary() : void{
 		this.tsService.getTestSummary().subscribe( data => {
       		this.chartData = data;
-      		this.renderChart();
+            console.log("Chart Data: "+JSON.stringify(data));
+      		this.renderChart(this.chartData);
     	});
     }
 
-    renderChart() : void{
-    	console.log("ghusa");
-    	$('#chartdiv').highcharts({
+    renderChart(chartData : any) : void{
+    	
+        console.log(chartData.totalTestsPassed);
+    	Highcharts.chart({
+
 
         chart: {
+            renderTo : 'chartdiv',
             type: 'pie',
             options3d: {
                 enabled: true,
@@ -41,8 +41,8 @@ export class DoughnutChart {
             }
         },
         credits: {
-                    enabled: false
-                },
+            enabled: false
+        },
         title: {
             text: 'Status of tests'
         },
@@ -58,9 +58,15 @@ export class DoughnutChart {
         series: [{
             name: ' Tests',
             data: [
-                ['Pass', this.totalPass],
-                ['Fail', this.totalFail],
-                ['Skipped', this.totalSkipped]
+                ['Pass', chartData.totalTestsPassed],
+                ['Fail', chartData.totalTestsFailed],
+                ['Skipped', chartData.totalTestsSkipped],
+//['Oranges', 6],
+  //              ['Apples', 8],
+    //            ['Pears', 4],
+      //          ['Clementines', 4],
+        //        ['Reddish (bag)', 1],
+          //      ['Grapes (bunch)', 1]
             ]
         }]
     });
