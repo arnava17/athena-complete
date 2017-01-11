@@ -21,9 +21,9 @@ export class PathView implements OnInit{
     this.teService.getTests().subscribe( data => {
         this.tValues = data;
         this.tValue = this.tValues[0];
-        console.log(this.tValues);
+        //console.log(this.tValues);
       }
-       );
+    );
     //this.teService.getTests().then( tValues => this.tValues = tValues );
   }
 

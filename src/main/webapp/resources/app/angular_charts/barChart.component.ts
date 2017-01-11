@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FunctionalSummaryService } from '../services/functionalSummary.service';
 import { OnInit } from '@angular/core'
+import { ENV_CONST } from '../const/environment.const';
 var Highcharts = require('highcharts');
 var cat : string[] = [];
 var passed : number[] = [];
@@ -21,7 +22,7 @@ export class BarChart {
 
 	getFunctionalSummary() : void{
 		this.fsService.getFunctionalSummary().subscribe( data => {
-            console.log("Chart Data: "+JSON.stringify(data));
+            //console.log("Chart Data: "+JSON.stringify(data));
             this.parseData(data);
       		this.renderChart();
     	});
@@ -31,12 +32,12 @@ export class BarChart {
     	var count = data.length;
 	    for(var i = 0 ; i < count ; i++){
 	        cat.push(data[i].functionalAreaName);
-	        console.log(cat[i]);
+	        //console.log(cat[i]);
 	        passed.push(data[i].passCount);
 	        failed.push(data[i].failCount);
 	        skipped.push(data[i].skipCount);
 	    }
-	    console.log(cat);
+	    //console.log(cat);
     }
 
     renderChart() : void{
@@ -92,17 +93,17 @@ export class BarChart {
         },
         series: [{
             name: 'Passed',
-            color:'#95CEFF',
+            color:ENV_CONST.COLORS.PASS_COLOR,
             data: passed
         }
         , {
             name: 'Failed',
-            color:'#434348',
+            color: ENV_CONST.COLORS.FAIL_COLOR,
             data: failed
         },
     	{
             name: 'Skipped',
-            color:'#90ED7D',
+            color:ENV_CONST.COLORS.SKIP_COLOR,
             data: skipped
 
     	}]

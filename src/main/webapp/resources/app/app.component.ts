@@ -20,8 +20,12 @@ import { PathView } from './view/pathView.component';
     <summary-view></summary-view>
     <br>
     <bar-chart></bar-chart>
-    <donut-chart></donut-chart>
-    <pyramid-chart></pyramid-chart>
+    <br>
+    <div style="width:100%">
+      <div  style="float: left;width:50%;max-height: 400px; margin: 0 auto"><donut-chart></donut-chart></div>
+      <div  style="float: right;width:50%; max-height: 400px; margin: 0 auto"><pyramid-chart></pyramid-chart></div>
+    </div>
+    <br>
     <h3>Data Table</h3>
     <br>
     <data-table></data-table>

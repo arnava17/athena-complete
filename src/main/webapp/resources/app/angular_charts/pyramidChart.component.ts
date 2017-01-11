@@ -1,30 +1,21 @@
 import { Component } from '@angular/core';
 import { TestSubTypeSummaryService } from '../services/testSubTypeSummary.service';
 import { OnInit } from '@angular/core'
+import { ENV_CONST } from '../const/environment.const';
 var Highcharts = require('highcharts');
-//require('highcharts-3d');
-//var more = require('highcharts-more');
-//import 'highcharts-more';
+require('funnel')(Highcharts);
+require('exporting')(Highcharts);
 
-//var fun = require ('funnel');
-//var exp = require('exporting');
 var completeArray : any[] = [];
 @Component({
 	selector : 'pyramid-chart',
 	template : `
-		<div id="pyramid-div" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+		<div id="pyramid-div"></div>
 	`
 })
 export class PyramidChart {
 	foo:any;
-    constructor(private fsService : TestSubTypeSummaryService){
-        //console.log(hmore);
-        //this.foo = new Highcharts();
-        //this.foo = new Highcharts();
-        //this.foo = new hmore(Highcharts);
-        //System.import("node_modules/highcharts/highcharts-more.src.js");
-        //import 'http://code.highcharts.com/highcharts-more.js';
-    };
+    constructor(private fsService : TestSubTypeSummaryService){};
 	
 	ngAfterViewInit(){
 		this.getTestSubTypeSummary();
@@ -32,7 +23,7 @@ export class PyramidChart {
 
 	getTestSubTypeSummary() : void{
 		this.fsService.getTestSubTypeSummary().subscribe( data => {
-            console.log("Chart Data: "+JSON.stringify(data));
+            //console.log("Chart Data: "+JSON.stringify(data));
             this.parseData(data);
       		this.renderChart();
     	});
@@ -57,7 +48,7 @@ export class PyramidChart {
             marginRight: 100
         },
         title: {
-            text: 'Test pyramid',
+            text: 'Test Subtype Pyramid',
             x: -50
         },
         plotOptions: {

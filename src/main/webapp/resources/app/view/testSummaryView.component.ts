@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TestSummary } from '../testSummary';
 import { TestSummaryService } from '../services/testSummary.service';
 import { OnInit } from '@angular/core';
+import { ENV_CONST } from '../const/environment.const';
 //import { HttpModule }    from '@angular/http';
 
 
@@ -16,17 +17,17 @@ import { OnInit } from '@angular/core';
                       </div>
                       <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                         <span class="count_top"><i class="fa fa-check"></i> Passed</span>
-                        <div class="count" style="color:#66ad43;">{{sValues.totalTestsPassed}}</div>
+                        <div class="count" id="passDiv" [style.color]="const.COLORS.PASS_COLOR">{{sValues.totalTestsPassed}}</div>
                         <!--<span class="count_bottom"><i class="green">4% </i> From last Week</span>-->
                       </div>
                       <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                         <span class="count_top"><i class="fa fa-times"></i> Failed</span>
-                        <div class="count" style="color:#f73d44;">{{sValues.totalTestsFailed}}</div>
+                        <div class="count" id="failDiv" [style.color]="const.COLORS.FAIL_COLOR">{{sValues.totalTestsFailed}}</div>
                         <!--<span class="count_bottom"><i class="green">4% </i> From last Week</span>-->
                       </div>
                       <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                         <span class="count_top"><i class="fa fa-mail-forward"></i> Skipped</span>
-                        <div class="count" style="color:#94a2ef;">{{sValues.totalTestsSkipped}}</div>
+                        <div class="count"  id="skipDiv" [style.color]="const.COLORS.SKIP_COLOR">{{sValues.totalTestsSkipped}}</div>
                         <!--<span class="count_bottom"><i class="green">4% </i> From last Week</span>-->
                       </div>
                       <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
@@ -43,6 +44,7 @@ import { OnInit } from '@angular/core';
 export class TestSummaryView implements OnInit{
 	sValues : TestSummary;
   //restUrl:string = "/service/demo"
+  const = ENV_CONST;
   constructor(private tsService: TestSummaryService){}
 
   getTestSummary():void{
@@ -56,6 +58,10 @@ export class TestSummaryView implements OnInit{
 
   ngOnInit(): void{
     this.getTestSummary();
+  }
+
+  setColors(): void{
+
   }
 
 
