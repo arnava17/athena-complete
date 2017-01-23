@@ -11,8 +11,9 @@ import java.util.Date;
 
 @Document
 public class Result {
-	@Id
-	public String id;
+
+	//@Id
+	//public String id;
 
 	private String portfolio;
 	private String application;

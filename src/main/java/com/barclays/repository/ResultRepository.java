@@ -13,6 +13,7 @@ import java.util.List;
 @Repository
 public interface ResultRepository extends MongoRepository<Result, String> {
 	List<Result> findByTestRunId(String testRunId);
+	List<Result> findByPortfolio(String portfolio);
 	Long countByTestRunId(String testRunId);
 	Long countByTestRunIdAndStatus(String testRunId, String Status);
 }

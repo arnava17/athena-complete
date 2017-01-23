@@ -50,4 +50,5 @@ public class ResultController {
 	public List<TestSubType> getTestSubTypeSummary(@PathVariable("test_run_id") String testRunId) {
 		return resultService.getTestSubTypeSummary(testRunId);
 	}
+
 }

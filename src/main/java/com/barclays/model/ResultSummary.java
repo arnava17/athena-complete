@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
  * Created by RAggarwal on 12/22/2016.
  */
 
-@Component
 public class ResultSummary {
 
     private int totalTests;

@@ -1,0 +1,16 @@
+spring:
+  data:
+    mongodb:
+      database: athenaDb
+      host: localhost
+      port: 27017
+      uri: mongodb://localhost/athenaDb
+
+---
+
+spring:
+  profiles: test
+  data:
+    mongodb:
+      database: athenaDbTest
+      uri: mongodb://localhost/athenaDbTest

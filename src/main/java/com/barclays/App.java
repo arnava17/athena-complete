@@ -19,11 +19,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableMongoRepositories("com.barclays.repository")
 @EnableSwagger2
-public class Application {
+public class App {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(App.class, args);
 	}
 
 	@Bean

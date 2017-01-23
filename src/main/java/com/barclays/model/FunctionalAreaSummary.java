@@ -10,7 +10,6 @@ import java.util.Map;
 /**
  * Created by RNagmoti on 1/4/2017.
  */
-@Component
 public class FunctionalAreaSummary {
 
     private Map<String, StatusCount> functionalAreaStatusCount;

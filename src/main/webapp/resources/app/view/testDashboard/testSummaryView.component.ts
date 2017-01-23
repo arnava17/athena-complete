@@ -1,10 +1,6 @@
-import { Component } from '@angular/core';
-import { TestSummary } from '../testSummary';
-import { TestSummaryService } from '../services/testSummary.service';
+import { Component , Input } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { ENV_CONST } from '../const/environment.const';
-//import { HttpModule }    from '@angular/http';
-
+import { ENV_CONST } from '../../const/environment.const';
 
 @Component({
 	selector : 'summary-view',
@@ -39,30 +35,8 @@ import { ENV_CONST } from '../const/environment.const';
   styles : [
     '.count{font-size : 28px !important;}'
     ],
-  providers : [TestSummaryService]
 })
-export class TestSummaryView implements OnInit{
-	sValues : TestSummary;
-  //restUrl:string = "/service/demo"
+export class TestSummaryView{
+	@Input() sValues : any;
   const = ENV_CONST;
-  constructor(private tsService: TestSummaryService){}
-
-  getTestSummary():void{
-    this.tsService.getTestSummary().subscribe( sValues => {
-      this.sValues = sValues;
-      //console.log("Zinda");
-      //console.log(sValues);
-    });
-    //this.teService.getTests().then( tValues => this.tValues = tValues );
-  }
-
-  ngOnInit(): void{
-    this.getTestSummary();
-  }
-
-  setColors(): void{
-
-  }
-
-
 }

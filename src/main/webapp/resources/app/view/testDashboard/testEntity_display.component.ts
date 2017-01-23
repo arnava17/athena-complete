@@ -1,10 +1,6 @@
-import { Component } from '@angular/core';
-import { TestEntity } from '../testEntity';
-import { TestEntityService } from '../services/testEntity.service';
+import { Component , Input} from '@angular/core';
 import { OnInit } from '@angular/core';
-import { ENV_CONST } from '../const/environment.const';
-//import { HttpModule }    from '@angular/http';
-
+import { ENV_CONST } from '../../const/environment.const';
 
 @Component({
 	selector : 'data-table',
@@ -28,28 +24,18 @@ import { ENV_CONST } from '../const/environment.const';
     				</tbody>
   			 </table>`,
   styles : ['.testStatus{width:45px;text-align:center;color:white;border-radius:3px;font-weight:bold}'],
-  providers : [TestEntityService]
 })
 export class TestTableView implements OnInit{
-	tValues : TestEntity[];
-  //restUrl:string = "/service/demo"
-  constructor(private teService: TestEntityService){}
-  
-  getTests():void{
-    this.teService.getTests().subscribe( data => {
-        this.tValues = data;
-        for(var i=0; i< this.tValues.length ; i++){
+	@Input() tValues : any;
+  parseTests():void{ 
+    for(var i=0; i< this.tValues.length ; i++){
           this.tValues[i].startTime = this.parseDate(this.tValues[i].startTime);
           this.tValues[i].endTime = this.parseDate(this.tValues[i].endTime);
-        }
-        //console.log(this.tValues);
-      }
-       );
-    //this.teService.getTests().then( tValues => this.tValues = tValues );
+    }
   }
 
   ngOnInit(): void{
-    this.getTests();
+    this.parseTests();
   }
 
   parseDate(date:string) : string {
@@ -69,7 +55,6 @@ export class TestTableView implements OnInit{
     else if(status == "SKIP"){
       resultColor = ENV_CONST.COLORS.SKIP_COLOR;
     }
-    console.log(resultColor);
     return resultColor;
 
   }
