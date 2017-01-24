@@ -18,7 +18,9 @@ var Highcharts = require('highcharts');
 @Component({
     selector : 'porfolio-dashboard',
     template : `
-    	<h3 *ngIf = "portfolioName">{{portfolioName}}</h3>
+    	<ul *ngIf = "portfolioName" class="breadcrumb active" style="background-color:white !important;font-size:15px !important">
+        <li>{{portfolioName}}</li>
+      </ul>
     	<br>
     	
       <div *ngIf="portfolioSummary">

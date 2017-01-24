@@ -16,8 +16,8 @@ import { Component , Input } from '@angular/core';
                 </tr>
             </thead>
             <tbody>
-            	<tr *ngFor="let td of tableData">
-                  <th scope="row">1</th>
+            	<tr *ngFor="let td of tableData;let i = index">
+                  <th scope="row">{{i+1}}</th>
                   <td>{{td.application}}</td>
                   <td>{{td.build}}</td>
                   <td>{{td.release}}</td>
