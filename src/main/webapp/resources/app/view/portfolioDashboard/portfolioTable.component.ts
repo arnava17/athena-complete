@@ -8,25 +8,20 @@ import { Component , Input } from '@angular/core';
 	            <thead>
 	                <tr>
 		              <th>#</th>
-		              <th>APPLICATION</th>
-		              <th>BUILD</th>
-		              <th>RELEASE</th>
-				  	  <th>TEST NAME</th>
-				      <th>STATUS</th>
-				  	  <th>FUNCTIONAL AREA</th>
+		              <th>Application</th>
+		              <th>Release</th>
+		              <th>Build</th>
+				  	  <th>Test Run ID</th>
 	                </tr>
 	            </thead>
 	            <tbody>
 	            	<tr *ngFor="let td of tableData;let i = index">
 	                  <th scope="row">{{i+1}}</th>
 	                  <td>{{td.application}}</td>
-	                  <td>{{td.build}}</td>
 	                  <td>{{td.release}}</td>
-					  <td>{{td.testName}}</td>
-				      <td>{{td.status}}</td>
-				  	  <td>{{td.functionalArea}}</td>
+	                  <td>{{td.build}}</td>
+					  <td>{{td.testRunId}}</td>
 	                </tr>
-	                        
 	            </tbody>
 	        </table>
         </div>
