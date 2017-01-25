@@ -5,26 +5,31 @@ import { DEFAULT_CHART_CONFIG } from '../../const/chart.const';
 import { ENV_CONST } from '../../const/environment.const';
 var Highcharts = require ('highcharts');
 @Component({
-	selector : 'portfolioTile-view',
+	selector : 'tile-view',
 	template :
   `
-  <div style="width:175px; height :200px">
-  <div >
+  <div style="width:175px;float:left;margin:10px;padding:10px;box-shadow: 0px 0px 2px #2A3F54;">
     <div>
       <h2>{{tileData.applicationName}}</h2>
-  <table style="width:100%">
-      <tr>
+    </div>
+    <hr style="width:80%,color:grey">
+    <div>
+      <table style="width:100%">
+        <tr>
           <th style="text-align:left">Execution %</th>
           <td style="text-align:right">{{tileData.executionPercentage}}</td> 
-      </tr>
-      <tr>
+        </tr>
+        <tr>
           <th style="text-align:left">Pass %</th>
           <td  style="text-align:right">90</td> 
-      </tr>
-  </table>
+        </tr>
+      </table>
   </div>
 <div id="{{tileData.divName}}" *ngIf="chartData" style="min-width: 100px; max-width:100%;height:175px">
 </div>
+<!--<div *ngIf="chartData" style="min-width:100px;max-width:100%;height:150px">
+  <donut-chart [chartData]="chartData"></donut-chart>
+</div>-->
 </div>
   `
 
@@ -48,6 +53,7 @@ export class TileView implements OnInit{
     
     var cData = {
         chart: {
+            //renderTo : 'donut_div'+data.applicationName,
             type: 'pie',
             options3d: {
                 enabled: true,
@@ -63,7 +69,7 @@ export class TileView implements OnInit{
     exporting: { enabled: false },
         plotOptions: {
             pie: {
-    size:'100%',
+            size:'100%',
 
                 depth: 45,
       allowPointSelect: true,

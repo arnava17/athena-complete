@@ -28,6 +28,8 @@ import { PortfolioDashboard } from './view/portfolioDashboard/portfolioDashboard
 import { TileView } from './view/portfolioDashboard/tile.component';
 import { PortfolioSummary } from './view/portfolioDashboard/portfolioSummary.component';
 import { PortfolioTable } from './view/portfolioDashboard/portfolioTable.component';
+import { PortfolioTileView } from './view/portfolioDashboard/porfolioTiles.component';
+
 
 @NgModule({
   imports:      [
@@ -48,7 +50,8 @@ import { PortfolioTable } from './view/portfolioDashboard/portfolioTable.compone
             PathView,
             TileView,
             PortfolioSummary,
-            PortfolioTable
+            PortfolioTable,
+            PortfolioTileView
   				],
 
   bootstrap:    [ AppComponent ],

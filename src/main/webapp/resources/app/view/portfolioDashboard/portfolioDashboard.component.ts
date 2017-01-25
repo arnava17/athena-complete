@@ -5,6 +5,8 @@ import { BarChart } from '../../angular_charts/barChart.component';
 import { Router , ActivatedRoute } from '@angular/router';
 import { OnInit,OnDestroy } from '@angular/core';
 import { PortfolioDashboardService } from '../../services/portfolioDashboard.service';
+import { PortfolioTileView } from './porfolioTiles.component';
+
 import {Observable} from "rxjs/Rx";
 import { ENV_CONST } from '../../const/environment.const'
 import { PortfolioSummary } from './portfolioSummary.component';
@@ -18,26 +20,29 @@ var Highcharts = require('highcharts');
 @Component({
     selector : 'porfolio-dashboard',
     template : `
-    	<ul *ngIf = "portfolioName" class="breadcrumb active" style="background-color:white !important;font-size:15px !important">
-        <li>{{portfolioName}}</li>
-      </ul>
-    	<br>
-    	
-      <div *ngIf="portfolioSummary">
-    		<portfolio-summary [sValues]="portfolioSummary"></portfolio-summary>
-    	</div>
-    	
-      <div *ngIf="barChartData">
-    		<bar-chart [chartData]="barChartData"></bar-chart>
-    	</div>
-    	
-      <div *ngIf="tileData">	
-        <portfolioTile-view *ngFor="let tData of tileData" [tileData]="tData"></portfolioTile-view>
-    	</div>
-      <br>
-      <div *ngIf="portfolioTableData">
-    		<portfolio-table [tableData]="portfolioTableData"></portfolio-table>
-    	</div>
+    	<div style="width:100%;">
+        <div>
+          <ul *ngIf = "portfolioName" class="breadcrumb active" style="background-color:white !important;font-size:15px !important">
+            <li>{{portfolioName}}</li>
+          </ul>
+        </div>
+      	<br>
+        <div *ngIf="portfolioSummary">
+      		<portfolio-summary [sValues]="portfolioSummary"></portfolio-summary>
+      	</div>
+        <div *ngIf="barChartData">
+      		<bar-chart [chartData]="barChartData"></bar-chart>
+      	</div>
+        <br>
+        <br>
+        <h3>Application Test Coverage</h3>
+          <portfolioTile-view [tileData]="tileData"></portfolioTile-view>
+        <br>
+        <br>
+        <div *ngIf="portfolioTableData">
+      		<portfolio-table [tableData]="portfolioTableData"></portfolio-table>
+      	</div>
+      </div>
     `
 })
 export class PortfolioDashboard implements OnInit , OnDestroy{
