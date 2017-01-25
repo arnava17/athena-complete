@@ -8,12 +8,12 @@ import { Component , Input } from '@angular/core';
 	            <thead>
 	                <tr>
 		              <th>#</th>
-		              <th>Application</th>
-		              <th>Build</th>
-		              <th>release</th>
-				  	  <th>test name</th>
-				      <th>status</th>
-				  	  <th>functional area</th>
+		              <th>APPLICATION</th>
+		              <th>BUILD</th>
+		              <th>RELEASE</th>
+				  	  <th>TEST NAME</th>
+				      <th>STATUS</th>
+				  	  <th>FUNCTIONAL AREA</th>
 	                </tr>
 	            </thead>
 	            <tbody>

@@ -9,13 +9,13 @@ import { ENV_CONST } from '../../const/environment.const';
     				<thead>
               <tr>
                 <th>#</th>
-      					<th>Test Name</th>
-                <th>User Story</th>
-                <th>Test Tool</th>
-                <th>Functional Area</th>
-                <th>Status</th>
-                <th>Start Time</th>
-                <th>End Time</th>
+      					<th>TEST NAME</th>
+                <th>USER STORY</th>
+                <th>TEST TOOL</th>
+                <th>FUNCTIONAL AREA</th>
+                <th>STATUS</th>
+                <th>START TIME</th>
+                <th>END TIME</th>
               </tr>
     				</thead>
     				<tbody>

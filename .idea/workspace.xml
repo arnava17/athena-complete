@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50405826-a584-4d2b-996e-bfb338be51b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/app.module.ts" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/app.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/view/portfolioDashboard/portfolioDashboard.component.ts" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/view/portfolioDashboard/portfolioDashboard.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/view/portfolioDashboard/portfolioTable.component.ts" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/view/portfolioDashboard/portfolioTable.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/view/portfolioDashboard/tile.component.ts" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/view/portfolioDashboard/tile.component.ts" />
-    </list>
+    <list default="true" id="50405826-a584-4d2b-996e-bfb338be51b0" name="Default" comment="" />
     <ignored path="project-athena.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -926,7 +921,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
