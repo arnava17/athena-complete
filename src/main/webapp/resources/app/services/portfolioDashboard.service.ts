@@ -88,7 +88,7 @@ export class PortfolioDashboardService{
 		var cData = {
 	    	chart: {
 	        	renderTo : 'porfolio_bar_div',
-	            type: 'bar'
+	            type: 'column'
 	        },
 	        title: {
 	            text: 'Apllication vs Test Coverage'
@@ -115,7 +115,7 @@ export class PortfolioDashboardService{
 	            valueSuffix: '%'
 	        },
 	        plotOptions: {
-	            bar: {
+	            column: {
 	                dataLabels: {
 	                    enabled: true
 	                }

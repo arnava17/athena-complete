@@ -11,7 +11,7 @@ import { Component , Input } from '@angular/core';
 		              <th>Application</th>
 		              <th>Release</th>
 		              <th>Build</th>
-				  	  <th>Test Run ID</th>
+				  	  <th>Test Run</th>
 	                </tr>
 	            </thead>
 	            <tbody>
@@ -20,7 +20,7 @@ import { Component , Input } from '@angular/core';
 	                  <td>{{td.application}}</td>
 	                  <td>{{td.release}}</td>
 	                  <td>{{td.build}}</td>
-					  <td>{{td.testRunId}}</td>
+					  <td><a style="text-decoration:underline" routerLink="/testdashboard/{{td.testRunId}}">Launch Test Results</a></td>
 	                </tr>
 	            </tbody>
 	        </table>

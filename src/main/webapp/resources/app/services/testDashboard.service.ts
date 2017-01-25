@@ -159,6 +159,7 @@ export class TestDashboardService{
 	        },
 	        yAxis: {
 	            min: 0,
+	            allowDecimals : false,
 	            title: {
 	                text: 'Number of tests',
 	                align: 'high'
