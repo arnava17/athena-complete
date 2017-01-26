@@ -20,6 +20,12 @@ public class PortfolioController {
     @Autowired
     PortfolioService portfolioService;
 
+    @RequestMapping(value="", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    public List<String> getAllPortfolioNames(){
+        return portfolioService.getAllPortfolioNames();
+    }
+
     @RequestMapping(value="/{portfolio_name}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public PortfolioSummary getPortfolioSummary(@PathVariable("portfolio_name") String portfolioName ) {

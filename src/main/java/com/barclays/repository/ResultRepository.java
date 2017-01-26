@@ -12,6 +12,7 @@ import java.util.List;
 
 @Repository
 public interface ResultRepository extends MongoRepository<Result, String> {
+	List<Result> findAll();
 	List<Result> findByTestRunId(String testRunId);
 	List<Result> findByPortfolio(String portfolio);
 	Long countByTestRunId(String testRunId);

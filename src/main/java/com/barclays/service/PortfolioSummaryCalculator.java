@@ -123,20 +123,38 @@ public class PortfolioSummaryCalculator {
 
     public List<Result> getLatestRunsDetails(String portfolioName, List<Result> resultList, int latestRuns) {
 
-        Map<Date, Result> treeMap = new TreeMap<Date, Result>(Collections.<Date>reverseOrder());
+        Collections.sort(resultList, new Comparator<Result>() {
+            @Override
+            public int compare(Result result1, Result result2) {
+                return result2.getEndTime().compareTo(result1.getEndTime());
+            }
+        });
 
-        for (Result result : resultList) {
+        Map <String, Result> latestRunMap = new HashMap<String, Result>();
 
-            treeMap.put(result.getEndTime(), result);
+        for(Result result : resultList){
+            if(!latestRunMap.containsKey(result.getTestRunId())){
+                if(latestRunMap.size() < latestRuns){
+                    latestRunMap.put(result.getTestRunId(), result);
+                }
+            }
         }
 
         List<Result> latestRunList = new ArrayList<Result>();
-        for (int i = 0; i < treeMap.size(); i++) {
 
-            if (latestRunList.size() < latestRuns) {
-                latestRunList.add(treeMap.get(treeMap.keySet().toArray()[i]));
-            }
+        Iterator it = latestRunMap.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry pair = (Map.Entry) it.next();
+            latestRunList.add((Result) pair.getValue());
         }
+
+        Collections.sort(latestRunList, new Comparator<Result>() {
+            @Override
+            public int compare(Result result1, Result result2) {
+                return result2.getEndTime().compareTo(result1.getEndTime());
+            }
+        });
+
         return latestRunList;
     }
 }

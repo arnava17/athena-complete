@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="project-athena:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="project-athena.war">
+      <element id="artifact" artifact-name="project-athena:war exploded" />
+    </root>
+  </artifact>
+</component>
