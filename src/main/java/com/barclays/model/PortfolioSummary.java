@@ -9,6 +9,7 @@ public class PortfolioSummary {
 
     private String portfolioName;
     private int totalTests;
+    private int totalTestRuns;
     private double executionPercentage;
     private double passPercentage;
     List<Application> applicationList;
@@ -58,5 +59,11 @@ public class PortfolioSummary {
     }
 
 
+    public int getTotalTestRuns() {
+        return totalTestRuns;
+    }
 
+    public void setTotalTestRuns(int totalTestRuns) {
+        this.totalTestRuns = totalTestRuns;
+    }
 }

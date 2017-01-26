@@ -20,6 +20,7 @@ public class PortfolioSummaryCalculator {
         this.portfolioName = portfolioName;
 
         int totalTests = 0;
+        int totalTestRuns = 0;
         int passTests = 0;
         int failTests = 0;
         int skipTests = 0;
@@ -34,10 +35,16 @@ public class PortfolioSummaryCalculator {
         double executionPercentagePerApplication = 0;
         double passPercentagePerApplication = 0;
 
+        Map<String, Integer> testRunIdsMap = new HashMap<>();
         Map<String, Application> applicationMap = new HashMap<>();
         List<Application> applicationList = new ArrayList<Application>();
 
         for (Result result : resultList) {
+
+            if(!testRunIdsMap.containsKey(result.getTestRunId())){
+                testRunIdsMap.put(result.getTestRunId(), 0);
+            }
+
             String applicationName = result.getApplication();
 
             if (!(applicationMap.containsKey(applicationName))) {
@@ -66,6 +73,8 @@ public class PortfolioSummaryCalculator {
             applicationMap.put(applicationName, tempApp);
 
         }
+
+        totalTestRuns = testRunIdsMap.size();
 
         DecimalFormat df = new DecimalFormat("#.00");
         Iterator it = applicationMap.entrySet().iterator();
@@ -112,6 +121,7 @@ public class PortfolioSummaryCalculator {
         PortfolioSummary portfolioSummary = new PortfolioSummary();
         portfolioSummary.setPortfolioName(portfolioName);
         portfolioSummary.setTotalTests(totalTests);
+        portfolioSummary.setTotalTestRuns(totalTestRuns);
         portfolioSummary.setApplicationList(applicationList);
         portfolioSummary.setPassPercentage(passPercentagePerPortfolio);
         portfolioSummary.setExecutionPercentage(executionPercentagePerPortfolio);
