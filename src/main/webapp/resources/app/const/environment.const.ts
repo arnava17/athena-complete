@@ -21,7 +21,8 @@ export const ENV_CONST = {
 		FUNCTIONAL_SUMMARY : '/api/v1/results/{test_run_id}/functional_summary',
 		TEST_SUBTYPE_SUMMARY : '/api/v1/results/{test_run_id}/test_sub_type_summary',
 		PORTFOLIO_SUMMARY : '/api/v1/portfolio/{portfolio_name}',
-		PORTFOLIO_DATA : '/api/v1/portfolio/{portfolio_name}/history/{latest_runs}'
+		PORTFOLIO_DATA : '/api/v1/portfolio/{portfolio_name}/history/{latest_runs}',
+		PORTFOLIO_NAMES : '/api/v1/portfolio'
 	},
 
 	LABELS:{

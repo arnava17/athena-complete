@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-
+import { BaseView } from './view/baseView/baseView.component';
 @Component({
+
   selector: 'my-app',
   template: `
-    <router-outlet></router-outlet>
+    <base-view></base-view>
   `,
 })
 export class AppComponent  { name = 'Angular';}

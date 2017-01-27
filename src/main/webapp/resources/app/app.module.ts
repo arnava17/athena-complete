@@ -12,6 +12,14 @@ import { AppRouter } from './app.routes'
 import { HttpGetService } from './services/httpGet.service';
 import { TestDashboardService } from './services/testDashboard.service';
 import { PortfolioDashboardService } from './services/portfolioDashboard.service';
+import { SideMenuService }  from './services/sideMenu.service';
+
+//Views
+
+//BaseView
+import { BaseView } from './view/baseView/baseView.component';
+import { SideMenu } from './view/sideMenu/sideMenu.component';
+
 //Highcharts Components
 import { DonutChart } from './angular_charts/donutChart.component';
 import { BarChart } from './angular_charts/barChart.component';
@@ -40,6 +48,8 @@ import { PortfolioTileView } from './view/portfolioDashboard/porfolioTiles.compo
 
   declarations: [
   				  AppComponent ,
+            BaseView,
+            SideMenu,
             TestDashboard,
             PortfolioDashboard,
   				  TestTableView ,
@@ -59,7 +69,8 @@ import { PortfolioTileView } from './view/portfolioDashboard/porfolioTiles.compo
   providers: [
               HttpGetService,
               TestDashboardService,
-              PortfolioDashboardService
+              PortfolioDashboardService,
+              SideMenuService
              ]
 })
 export class AppModule { }
